@@ -11,7 +11,7 @@ class WeatherService {
   Future<WeatherData> getWeatherData(double lat, double lon) async {
     var response = await http.get(
       Uri.parse(
-          'http://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$lon&appid=$apiKey'),
+          'http://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$lon&appid=$apiKey&units=imperial'),
     );
 
     if (response.statusCode == 200) {

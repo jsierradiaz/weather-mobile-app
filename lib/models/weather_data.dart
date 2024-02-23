@@ -9,7 +9,7 @@ class WeatherData {
   final int sunrise;
   final int sunset;
   final int humidity;
-  final double windSpeed;
+  final int windSpeed;
   final int windDirection;
   final int pressure;
   final int visibility;

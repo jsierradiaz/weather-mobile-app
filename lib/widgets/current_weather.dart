@@ -8,17 +8,6 @@ class CurrentWeather extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    weather.temperature =
-        (weather.temperature * 9 / 5 - 459.67).round().toDouble();
-
-    weather.feelsLike = (weather.feelsLike * 9 / 5 - 459.67).round().toDouble();
-
-    weather.minTemperature =
-        (weather.minTemperature * 9 / 5 - 459.67).round().toDouble();
-
-    weather.maxTemperature =
-        (weather.maxTemperature * 9 / 5 - 459.67).round().toDouble();
-
     return InkWell(
       onTap: () {},
       splashColor: Theme.of(context).colorScheme.primary,

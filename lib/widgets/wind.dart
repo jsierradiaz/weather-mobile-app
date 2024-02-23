@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Wind extends StatelessWidget {
-  final double speed;
+  final String speed;
   final int degree;
 
   const Wind({Key? key, required this.speed, required this.degree})
@@ -37,7 +37,7 @@ class Wind extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        '${speed.toStringAsFixed(0)} mph',
+                        '${speed} mph',
                         style: const TextStyle(
                           fontSize: 24,
                         ),
