@@ -5,7 +5,6 @@ import 'package:weather_mobile_app/services/location_service.dart';
 import 'package:weather_mobile_app/services/secrets.dart';
 import 'package:weather_mobile_app/services/weather_service.dart';
 import 'package:weather_mobile_app/widgets/current_weather.dart';
-import 'package:weather_mobile_app/widgets/sunrise.dart';
 import 'package:weather_mobile_app/widgets/weather_details.dart';
 
 class Weather extends StatefulWidget {
