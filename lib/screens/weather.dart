@@ -14,6 +14,9 @@ class Weather extends StatefulWidget {
 }
 
 class _WeatherState extends State<Weather> {
+  final GlobalKey<RefreshIndicatorState> _refreshIndicatorKey =
+      GlobalKey<RefreshIndicatorState>();
+
   String apiKey = Secrets.openWeatherAPI;
   LocationService locationService = LocationService();
   WeatherService? weatherService;
@@ -78,17 +81,29 @@ class _WeatherState extends State<Weather> {
           onPressed: () {},
         ),
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              CurrentWeather(weather: weatherData),
-              const SizedBox(height: 20),
-              WeatherDetails(weatherData: weatherData),
-            ],
-          ),
+      body: RefreshIndicator(
+        key: _refreshIndicatorKey,
+        onRefresh: () async {
+          getWeatherData();
+        },
+        child: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: SingleChildScrollView(
+                child: Container(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      CurrentWeather(weather: weatherData),
+                      const SizedBox(height: 20),
+                      WeatherDetails(weatherData: weatherData),
+                    ],
+                  ),
+                ),
+              ),
+            )
+          ],
         ),
       ),
     );

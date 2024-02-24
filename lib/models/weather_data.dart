@@ -1,17 +1,17 @@
 class WeatherData {
   final String cityName;
-  double temperature;
-  double feelsLike;
-  double minTemperature;
-  double maxTemperature;
+  num temperature;
+  num feelsLike;
+  num minTemperature;
+  num maxTemperature;
   final String weatherDescription;
   final String icon;
   final int sunrise;
   final int sunset;
-  final int humidity;
-  final int windSpeed;
-  final int windDirection;
-  final int pressure;
+  final num humidity;
+  final num windSpeed;
+  final num windDirection;
+  final num pressure;
   final int visibility;
   final int time;
 
