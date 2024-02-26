@@ -4,6 +4,7 @@ class WeatherData {
   num feelsLike;
   num minTemperature;
   num maxTemperature;
+  final String main;
   final String weatherDescription;
   final String icon;
   final int sunrise;
@@ -21,6 +22,7 @@ class WeatherData {
     required this.feelsLike,
     required this.minTemperature,
     required this.maxTemperature,
+    required this.main,
     required this.weatherDescription,
     required this.icon,
     required this.sunrise,
@@ -40,6 +42,7 @@ class WeatherData {
       feelsLike: json['main']['feels_like'],
       minTemperature: json['main']['temp_min'],
       maxTemperature: json['main']['temp_max'],
+      main: json['weather'][0]['main'],
       weatherDescription: json['weather'][0]['description'],
       icon: json['weather'][0]['icon'],
       sunrise: json['sys']['sunrise'],
