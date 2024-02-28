@@ -65,8 +65,6 @@ class _WeatherState extends State<Weather> {
       WeatherForecast? weatherForecast = await weatherService
           ?.getWeatherForecast(locationData.latitude!, locationData.longitude!);
 
-      print(weatherForecast!.forecast[0].date);
-
       setState(() {
         this.weatherData = weatherData!;
         this.weatherForecast = weatherForecast!;

@@ -33,7 +33,10 @@ class WeatherDataCalc extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    '${DateTime.fromMillisecondsSinceEpoch(time * 1000).toLocal().toString().substring(11, 16)}',
+                    DateTime.fromMillisecondsSinceEpoch(time * 1000)
+                        .toLocal()
+                        .toString()
+                        .substring(11, 16),
                     style: const TextStyle(
                       fontSize: 24,
                     ),

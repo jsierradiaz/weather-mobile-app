@@ -35,7 +35,7 @@ class Pressure extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        '${pressure} hPa',
+                        '$pressure hPa',
                         style: const TextStyle(
                           fontSize: 24,
                         ),

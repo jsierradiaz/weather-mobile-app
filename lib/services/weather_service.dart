@@ -33,7 +33,6 @@ class WeatherService {
     if (response.statusCode == 200) {
       // If the server returns a 200 OK response, parse the JSON.
 
-      print(response.body);
       return WeatherForecast.fromJson(jsonDecode(response.body));
       //return WeatherForecast.fromJson(jsonDecode(response.body));
     } else {
