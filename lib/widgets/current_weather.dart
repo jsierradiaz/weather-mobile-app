@@ -23,42 +23,48 @@ class CurrentWeather extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 180),
-              Container(
-                alignment: Alignment.centerRight,
-                child: FutureBuilder(
-                  future: () async {
-                    try {
-                      return await precacheImage(
-                          NetworkImage(
-                              'http://openweathermap.org/img/w/${weather.icon}.png'),
-                          context);
-                    } catch (error) {
-                      return;
-                    }
-                  }(),
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return const CircularProgressIndicator();
-                    } else if (snapshot.error != null) {
-                      return const Icon(Icons.error);
-                    } else {
-                      return Image.network(
-                        'http://openweathermap.org/img/w/${weather.icon}.png',
-                        errorBuilder: (context, error, stackTrace) {
-                          return const Icon(Icons
-                              .error); // Return an error icon if an error occurs
-                        },
-                      );
-                    }
-                  },
-                ),
-              )
+              // Container(
+              //   alignment: Alignment.centerRight,
+              //   child: FutureBuilder(
+              //     future: () async {
+              //       try {
+              //         return await precacheImage(
+              //             NetworkImage(
+              //                 'http://openweathermap.org/img/w/${weather.icon}.png'),
+              //             context);
+              //       } catch (error) {
+              //         return;
+              //       }
+              //     }(),
+              //     builder: (context, snapshot) {
+              //       if (snapshot.connectionState == ConnectionState.waiting) {
+              //         return const CircularProgressIndicator();
+              //       } else if (snapshot.error != null) {
+              //         return const Icon(Icons.error);
+              //       } else {
+              //         return Image.network(
+              //           'http://openweathermap.org/img/w/${weather.icon}.png',
+              //           errorBuilder: (context, error, stackTrace) {
+              //             return const Icon(Icons
+              //                 .error); // Return an error icon if an error occurs
+              //           },
+              //         );
+              //       }
+              //     },
+              //   ),
+              // )
             ],
+          ),
+          Text(
+            weather.main,
+            style: const TextStyle(
+              fontSize: 24,
+            ),
           ),
           Text(
             weather.weatherDescription,
             style: const TextStyle(
-              fontSize: 24,
+              fontSize: 18,
             ),
           ),
           const SizedBox(height: 16),

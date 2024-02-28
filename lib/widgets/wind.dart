@@ -37,7 +37,7 @@ class Wind extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        '${speed} mph',
+                        '$speed mph',
                         style: const TextStyle(
                           fontSize: 24,
                         ),

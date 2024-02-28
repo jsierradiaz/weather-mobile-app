@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
 import 'package:weather_mobile_app/models/weather_data.dart';
+import 'package:weather_mobile_app/models/weather_forecast.dart';
 import 'package:weather_mobile_app/services/location_service.dart';
 import 'package:weather_mobile_app/services/secrets.dart';
 import 'package:weather_mobile_app/services/weather_service.dart';
+import 'package:weather_mobile_app/widgets/city_details.dart';
 import 'package:weather_mobile_app/widgets/current_weather.dart';
+import 'package:weather_mobile_app/widgets/forecast.dart';
 import 'package:weather_mobile_app/widgets/weather_details.dart';
 
 class Weather extends StatefulWidget {
@@ -14,9 +17,18 @@ class Weather extends StatefulWidget {
 }
 
 class _WeatherState extends State<Weather> {
+  final GlobalKey<RefreshIndicatorState> _refreshIndicatorKey =
+      GlobalKey<RefreshIndicatorState>();
+
   String apiKey = Secrets.openWeatherAPI;
   LocationService locationService = LocationService();
   WeatherService? weatherService;
+  WeatherForecast weatherForecast = WeatherForecast(
+      city: '',
+      country: '',
+      coord: Coord(lat: 0, lon: 0),
+      population: 0,
+      forecast: []);
 
   WeatherData weatherData = WeatherData(
     cityName: '',
@@ -25,6 +37,7 @@ class _WeatherState extends State<Weather> {
     minTemperature: 0,
     maxTemperature: 0,
     weatherDescription: '',
+    main: '',
     icon: '',
     sunrise: 0,
     sunset: 0,
@@ -49,9 +62,12 @@ class _WeatherState extends State<Weather> {
     if (locationData != null) {
       WeatherData? weatherData = await weatherService?.getWeatherData(
           locationData.latitude!, locationData.longitude!);
+      WeatherForecast? weatherForecast = await weatherService
+          ?.getWeatherForecast(locationData.latitude!, locationData.longitude!);
 
       setState(() {
         this.weatherData = weatherData!;
+        this.weatherForecast = weatherForecast!;
       });
     }
   }
@@ -78,17 +94,40 @@ class _WeatherState extends State<Weather> {
           onPressed: () {},
         ),
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              CurrentWeather(weather: weatherData),
-              const SizedBox(height: 20),
-              WeatherDetails(weatherData: weatherData),
-            ],
-          ),
+      body: RefreshIndicator(
+        key: _refreshIndicatorKey,
+        onRefresh: () async {
+          getWeatherData();
+        },
+        child: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: SingleChildScrollView(
+                child: Container(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      CurrentWeather(weather: weatherData),
+                      const SizedBox(height: 20),
+                      Forecast(
+                        weatherForecast: weatherForecast,
+                      ),
+                      const SizedBox(height: 20),
+                      WeatherDetails(weatherData: weatherData),
+                      const SizedBox(height: 20),
+                      CityDetails(
+                        city: weatherForecast.city,
+                        country: weatherForecast.country,
+                        coord: weatherForecast.coord,
+                        population: weatherForecast.population,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            )
+          ],
         ),
       ),
     );

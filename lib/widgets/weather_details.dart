@@ -27,15 +27,15 @@ class WeatherDetails extends StatelessWidget {
           children: [
             Wind(
                 speed: weatherData.windSpeed.toString(),
-                degree: weatherData.windDirection),
+                degree: weatherData.windDirection.toInt()),
             const SizedBox(width: 10),
-            Humidity(humidity: weatherData.humidity),
+            Humidity(humidity: weatherData.humidity.toInt()),
           ],
         ),
         const SizedBox(height: 10),
         Row(
           children: [
-            Pressure(pressure: weatherData.pressure),
+            Pressure(pressure: weatherData.pressure.toInt()),
             const SizedBox(width: 10),
             VisibilityRange(visibility: weatherData.visibility),
           ],
