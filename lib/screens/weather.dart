@@ -8,6 +8,7 @@ import 'package:weather_mobile_app/services/weather_service.dart';
 import 'package:weather_mobile_app/widgets/city_details.dart';
 import 'package:weather_mobile_app/widgets/current_weather.dart';
 import 'package:weather_mobile_app/widgets/forecast.dart';
+import 'package:weather_mobile_app/widgets/main_drawer.dart';
 import 'package:weather_mobile_app/widgets/weather_details.dart';
 
 class Weather extends StatefulWidget {
@@ -89,11 +90,14 @@ class _WeatherState extends State<Weather> {
             const Icon(Icons.location_on_outlined),
           ],
         ),
-        leading: IconButton(
-          icon: const Icon(Icons.menu),
-          onPressed: () {},
-        ),
+        // leading: IconButton(
+        //   icon: const Icon(Icons.menu),
+        //   onPressed: () {
+        //     Scaffold.of(context).openDrawer();
+        //   },
+        // ),
       ),
+      drawer: MainDrawer(),
       body: RefreshIndicator(
         key: _refreshIndicatorKey,
         onRefresh: () async {
