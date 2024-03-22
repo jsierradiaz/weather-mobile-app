@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class MainDrawer extends StatelessWidget {
-  const MainDrawer({Key? key}) : super(key: key);
+  const MainDrawer({super.key, required this.onSelectedScreen});
+
+  final void Function(String identifier) onSelectedScreen;
 
   @override
   Widget build(BuildContext context) {
@@ -21,21 +23,21 @@ class MainDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            title: const Text('Home'),
+            title: const Text('Weather'),
             onTap: () {
-              Navigator.pop(context);
+              onSelectedScreen('WeatherScreen');
             },
           ),
           ListTile(
             title: const Text('Settings'),
             onTap: () {
-              Navigator.pop(context);
+              onSelectedScreen('SettingsScreen');
             },
           ),
           ListTile(
             title: const Text('About'),
             onTap: () {
-              Navigator.pop(context);
+              onSelectedScreen('AboutScreen');
             },
           ),
         ],
