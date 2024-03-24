@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-
-import 'package:weather_mobile_app/screens/weather.dart';
+import 'package:weather_mobile_app/screens/tabs_screen.dart';
 
 final theme = ThemeData(
   useMaterial3: true,
@@ -27,10 +26,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: theme,
-      home: const Weather(),
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: theme,
+        home: const TabsScreen());
   }
 }
