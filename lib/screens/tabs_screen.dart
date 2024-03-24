@@ -7,10 +7,10 @@ import 'package:weather_mobile_app/widgets/main_drawer.dart';
 class TabsScreen extends StatefulWidget {
   const TabsScreen({Key? key}) : super(key: key);
   @override
-  _TabsScreenState createState() => _TabsScreenState();
+  TabsScreenState createState() => TabsScreenState();
 }
 
-class _TabsScreenState extends State<TabsScreen> {
+class TabsScreenState extends State<TabsScreen> {
   Widget activeScreen = const Weather();
   String title = 'Weather App';
 

@@ -90,6 +90,12 @@ class _WeatherState extends State<Weather> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
+                      Text(
+                        weatherData.cityName,
+                        style: const TextStyle(
+                          fontSize: 24,
+                        ),
+                      ),
                       CurrentWeather(weather: weatherData),
                       const SizedBox(height: 20),
                       Forecast(
