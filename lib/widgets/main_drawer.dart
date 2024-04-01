@@ -8,6 +8,7 @@ class MainDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      backgroundColor: Theme.of(context).colorScheme.secondary,
       child: ListView(
         children: [
           DrawerHeader(
@@ -17,13 +18,12 @@ class MainDrawer extends StatelessWidget {
             child: const Text(
               'Weather App',
               style: TextStyle(
-                color: Colors.white,
                 fontSize: 24,
               ),
             ),
           ),
           ListTile(
-            title: const Text('Weather'),
+            title: const Text('Weather Forecast'),
             onTap: () {
               onSelectedScreen('WeatherScreen');
             },

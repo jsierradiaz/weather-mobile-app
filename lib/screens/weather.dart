@@ -5,10 +5,10 @@ import 'package:weather_mobile_app/models/weather_forecast.dart';
 import 'package:weather_mobile_app/services/location_service.dart';
 import 'package:weather_mobile_app/services/secrets.dart';
 import 'package:weather_mobile_app/services/weather_service.dart';
-import 'package:weather_mobile_app/widgets/city_details.dart';
-import 'package:weather_mobile_app/widgets/current_weather.dart';
-import 'package:weather_mobile_app/widgets/forecast.dart';
-import 'package:weather_mobile_app/widgets/weather_details.dart';
+import 'package:weather_mobile_app/widgets/weather/city_details.dart';
+import 'package:weather_mobile_app/widgets/weather/current_weather.dart';
+import 'package:weather_mobile_app/widgets/weather/forecast.dart';
+import 'package:weather_mobile_app/widgets/weather/weather_details.dart';
 
 class Weather extends StatefulWidget {
   const Weather({Key? key}) : super(key: key);
@@ -90,12 +90,6 @@ class _WeatherState extends State<Weather> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(
-                        weatherData.cityName,
-                        style: const TextStyle(
-                          fontSize: 24,
-                        ),
-                      ),
                       CurrentWeather(weather: weatherData),
                       const SizedBox(height: 20),
                       Forecast(

@@ -7,9 +7,7 @@ final theme = ThemeData(
   colorScheme: ColorScheme.fromSeed(
     brightness: Brightness.light,
     seedColor: Colors.blue,
-    primary: Colors.blue[200],
-    // primary: Colors.yellow[200],
-    //primary: const Color.fromARGB(255, 236, 160, 47),
+    primary: const Color.fromARGB(255, 3, 100, 180),
     secondary: Colors.lightBlue[100],
   ),
 );
@@ -27,7 +25,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
         theme: theme,
         home: const TabsScreen());
   }
