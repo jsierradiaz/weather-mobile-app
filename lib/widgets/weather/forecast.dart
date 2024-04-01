@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather_mobile_app/models/weather_forecast.dart';
-import 'package:weather_mobile_app/widgets/date_formatter.dart';
+import 'package:weather_mobile_app/widgets/weather/date_formatter.dart';
 
 class Forecast extends StatefulWidget {
   const Forecast({
