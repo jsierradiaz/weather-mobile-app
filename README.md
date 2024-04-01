@@ -15,12 +15,15 @@ This app is a great tool for anyone who needs to keep track of weather condition
 The following are some screenshots of the app.
 
 *Screenshot 1: Home Screen*
+
 ![App Screenshot](./assets/screenshots/weather_1.png)
 
 *Screenshot 2: Home Screen continued*
+
 ![App Screenshot](./assets/screenshots/weather_2.png)
 
 *Screenshot 3: App Drawer*
+
 ![App Screenshot](./assets/screenshots/weather_drawer.png)
 
 ## Getting Started
