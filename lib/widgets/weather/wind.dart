@@ -34,22 +34,25 @@ class Wind extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Row(
-                    children: [
-                      Text(
-                        '$speed mph',
-                        style: const TextStyle(
-                          fontSize: 24,
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        Text(
+                          '$speed mph',
+                          style: const TextStyle(
+                            fontSize: 24,
+                          ),
                         ),
-                      ),
-                      const SizedBox(width: 10),
-                      Text(
-                        '${degree.toString()}°',
-                        style: const TextStyle(
-                          fontSize: 24,
+                        const SizedBox(width: 10),
+                        Text(
+                          '${degree.toString()}°',
+                          style: const TextStyle(
+                            fontSize: 24,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ],
               ),
