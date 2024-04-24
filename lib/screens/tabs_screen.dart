@@ -28,7 +28,7 @@ class TabsScreenState extends State<TabsScreen> {
       case 'SettingsScreen':
         title = 'Settings';
         setState(() {
-          activeScreen = const SettingsScreen();
+          activeScreen = SettingsScreen();
         });
         break;
       case 'AboutScreen':

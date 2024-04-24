@@ -1,45 +1,75 @@
 import 'package:flutter/material.dart';
+import 'package:weather_mobile_app/widgets/custom_drop_button.dart';
 
-class SettingsScreen extends StatelessWidget {
-  const SettingsScreen({Key? key}) : super(key: key);
+class SettingsScreen extends StatefulWidget {
+  SettingsScreen({Key? key}) : super(key: key);
+
+  @override
+  State<SettingsScreen> createState() => _SettingsScreenState();
+}
+
+class _SettingsScreenState extends State<SettingsScreen> {
+  String temperatureUnit = 'Celsius';
+
+  String windSpeedUnit = 'm/s';
+
+  String pressureUnit = 'hPa';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.primary,
-      body: const Center(
-        child: Text(
-          'Settings',
-          style: TextStyle(
-            fontSize: 24,
-            color: Colors.white,
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: InkWell(
+              borderRadius: BorderRadius.circular(8),
+              onTap: () {
+                // Navigator.of(context).pop();
+              },
+              child: Ink(
+                decoration: BoxDecoration(
+                  color:
+                      Theme.of(context).colorScheme.secondary.withOpacity(0.5),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CustomDropButton(
+                          title: 'Temperature Units',
+                          items: const ['Celsius', 'Fahrenheit', 'Kelvin'],
+                          value: temperatureUnit),
+                      const SizedBox(height: 16),
+                      CustomDropButton(
+                          title: 'Wind Speed Units',
+                          items: const ['m/s', 'km/h', 'mph'],
+                          value: windSpeedUnit),
+                      const SizedBox(height: 16),
+                      CustomDropButton(
+                          title: 'Pressure Units',
+                          items: const ['hPa', 'mmHg', 'inHg'],
+                          value: pressureUnit),
+                      Row(children: [
+                        const Expanded(child: SizedBox(height: 16)),
+                        ElevatedButton(
+                          onPressed: () {
+                            // save settings
+                          },
+                          child: const Text('Save'),
+                        ),
+                      ]),
+                    ],
+                  ),
+                ),
+              ),
+            ),
           ),
-        ),
+        ],
       ),
-      // body: InkWell(
-      //   onTap: () {
-      //     // Navigator.of(context).pop();
-      //   },
-      //   child: Card(
-      //     margin: const EdgeInsets.all(16),
-      //     child: Column(
-      //       children: const [
-      //         ListTile(
-      //           title: Text('Temperature Units'),
-      //           trailing: Text('Celsius'),
-      //         ),
-      //         ListTile(
-      //           title: Text('Wind Speed Units'),
-      //           trailing: Text('km/h'),
-      //         ),
-      //         ListTile(
-      //           title: Text('Pressure Units'),
-      //           trailing: Text('hPa'),
-      //         ),
-      //       ],
-      //     ),
-      //   ),
-      // ),
     );
   }
 }
