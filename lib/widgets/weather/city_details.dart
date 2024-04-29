@@ -23,6 +23,7 @@ class CityDetails extends StatelessWidget {
       child: InkWell(
         onTap: () {},
         splashColor: Theme.of(context).colorScheme.primary,
+        borderRadius: BorderRadius.circular(8),
         child: Ink(
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.secondary.withOpacity(0.5),
