@@ -32,6 +32,7 @@ class _ForecastState extends State<Forecast> {
               child: InkWell(
                 onTap: () {},
                 splashColor: Theme.of(context).colorScheme.primary,
+                borderRadius: BorderRadius.circular(8),
                 child: Ink(
                   decoration: BoxDecoration(
                     color: Theme.of(context)

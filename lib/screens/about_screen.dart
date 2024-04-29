@@ -12,6 +12,7 @@ class AboutScreen extends StatelessWidget {
             padding: const EdgeInsets.all(16),
             child: InkWell(
               onTap: () {},
+              borderRadius: BorderRadius.circular(8),
               child: Ink(
                   decoration: BoxDecoration(
                     color: Theme.of(context)
